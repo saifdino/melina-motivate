@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Melina</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #3b82f6;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  h1 {
+    color: white;
+    margin-top: 40px;
+    font-size: 28px;
+  }
+  #btn {
+    background: #facc15;
+    border: none;
+    padding: 20px 40px;
+    border-radius: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 40px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  #btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255,255,0,0.7);
+  }
+  #message {
+    margin-top: 30px;
+    color: white;
+    font-size: 22px;
+    padding: 0 20px;
+  }
+  .floater {
+    position: absolute;
+    font-size: 32px;
+    opacity: 0.8;
+    animation: floatUp 12s linear infinite;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(100vh) translateX(0); }
+    100% { transform: translateY(-120vh) translateX(0); }
+  }
+</style>
+</head>
+<body>
+
+<h1>Hey Melina 💛</h1>
+<button id="btn">PRESS ME FOR A GREAT TIME!</button>
+<div id="message"></div>
+
+<div id="floaters"></div>
+
+<script>
+const messages = [
+  "You’re stronger than you think.",
+  "Today is brighter because you’re in it.",
+  "You’ve survived every bad day so far. You’re unbeaten.",
+  "You deserve good things.",
+  "One step at a time is still progress.",
+  "Your smile can brighten days.",
+  "You’re doing better than you think.",
+  "You matter more than you realize.",
+  "You help make the world kinder.",
+  "You are allowed to rest.",
+  "Good days are coming.",
+  "You bring light with you.",
+  "Someone appreciates you.",
+  "You have gentle but real strength.",
+  "You deserve a life that feels good.",
+  "Be proud of the quiet battles you win.",
+  "You are not alone.",
+  "Your presence is comforting.",
+  "It’s okay to feel tired.",
+  "You’re a work in progress and that’s okay.",
+  "You make the world kinder just by being here.",
+  "Your future self is cheering for you.",
+  "You have resilience in you.",
+  "Better things are lining up for you.",
+  "You deserve kindness.",
+  "You’re allowed to start again.",
+  "Your kindness makes a difference.",
+  "Your mind is brilliant.",
+  "You have so much potential.",
+  "You’re becoming stronger every day.",
+  "Hard days don’t define you.",
+  "You give people hope.",
+  "Your softness is strength.",
+  "You’re enough just as you are.",
+  "You make people’s days warmer.",
+  "Keep going. Good things are ahead.",
+  "You deserve rest and peace.",
+  "You inspire more than you know.",
+  "You’ve got this.",
+  "Your spirit is steady.",
+  "You deserve lasting happiness.",
+  "You’re rebuilding, not falling apart.",
+  "Every sunrise is a chance for you.",
+  "You’re capable of great things.",
+  "Your story is unfolding well.",
+  "You have incredible strength.",
+  "You deserve to feel proud.",
+  "You are valued.",
+  "You’re on your own path.",
+  "You’ve already come far.",
+  "You deserve compassion.",
+  "Every challenge makes you stronger.",
+  "You radiate your own quiet magic.",
+  "You are enough.",
+  "The world benefits from your presence.",
+  "Your courage shows.",
+  "You can do hard things.",
+  "You are someone worth believing in.",
+  "You bring meaning to others.",
+  "You’re doing your best.",
+  "You can turn things around.",
+  "You’re allowed to feel sad and still hope.",
+  "You’re building a future you’ll enjoy.",
+  "Your compassion is rare.",
+  "You make ordinary days better.",
+  "You offer so much to the world.",
+  "You grow through what you face.",
+  "You’re more impressive than you think.",
+  "You deserve supportive people.",
+  "Your journey matters.",
+  "You are not your mistakes.",
+  "You bring joy.",
+  "You’re allowed to take up space.",
+  "Your dreams are reachable.",
+  "You bring comfort.",
+  "You’re still standing.",
+  "You make tough days softer.",
+  "You can create a good life.",
+  "You deserve grace.",
+  "Your future is bright.",
+  "You’re a blessing to others.",
+  "Progress is progress.",
+  "You carry quiet brilliance.",
+  "You’re becoming someone wonderful.",
+  "Good news is coming.",
+  "You bring peace.",
+  "Your heart matters.",
+  "You’re stronger than your hardest day.",
+  "You make life sweeter.",
+  "You’re doing great.",
+  "You have a good soul.",
+  "You’re growing.",
+  "You deserve lighter days.",
+  "You’re a bright spot.",
+  "You’re becoming your best self.",
+  "You deserve uplifting love.",
+  "You are worthy.",
+  "You hold so much inside you."
+];
+
+function removeDashes(str) {
+  return str.replace(/—/g, '').replace(/\u2014/g, '');
+}
+
+for (let i=0; i<messages.length; i++) {
+  messages[i] = removeDashes(messages[i]);
+}
+
+document.getElementById("btn").addEventListener("click", () => {
+  const msg = messages[Math.floor(Math.random()*messages.length)];
+  document.getElementById("message").textContent = msg;
+});
+
+const icons = ['😊','!'];
+const floaters = document.getElementById("floaters");
+
+for (let i=0; i<40; i++) {
+  const el = document.createElement("div");
+  el.className = "floater";
+  el.textContent = icons[i % 2];
+  el.style.left = (i % 2 === 0 ? 20 + Math.random()*10 : 60 + Math.random()*10) + "vw";
+  el.style.animationDelay = (-Math.random()*5) + "s";
+  floaters.appendChild(el);
+}
+</script>
+
+</body>
+</html>
